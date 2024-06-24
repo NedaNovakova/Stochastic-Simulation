@@ -20,7 +20,7 @@ function initialize() {
 function start(){
     initialize();
     if(actionInterval == null) actionInterval = setInterval(actionLoop, 1);
-    if(pointInterval == null) pointInterval = setInterval(() => {addPoint(wizards); displayStats()}, 10);
+    if(pointInterval == null) pointInterval = setInterval(() => {addPoint(wizards); displayStats()}, 500); // number controls simulation speed
 }
 
 function stop(){
@@ -55,6 +55,8 @@ function reset() {
     fifty.innerHTML = "";
     seventyFive.innerHTML = "";
     oneHundred.innerHTML = "";
+
+    currentM.innerHTML = "";
 
     c.clearRect(0, 0, canvas.width, canvas.height);
     setup();

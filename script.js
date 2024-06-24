@@ -85,7 +85,6 @@ function displayStats() {
     }
 
     currentM.innerHTML = m;
-    resCursed.innerHTML = typeCursed(wizards);
 }
 
 function setup() {

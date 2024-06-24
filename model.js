@@ -1,4 +1,4 @@
-function addPoint(group) {
+function addPoint() {
     // If the end of the canvas has been reached, delete the earliest point and shift all remaining points to the left
     if(points[points.length - 1].x >= canvas.width - 7.5) {
         points.shift();
@@ -55,31 +55,7 @@ function addPoint(group) {
         if(r < probabilities[k] / max){
             y = (n - k) * ((canvas.height - 6) / (n + 1)) + 2.5; // Calculate y coordinate from the number of cursed wizards
             points.push(new point(x, y, k, 'orange'));
-            curse(k - i, group);
             dayCount++;
         }
     }
-}
-
-function curse(k, group) {
-    while(k > 0) {
-        let x = Math.floor(Math.random() * (n + 1));
-        if (group.members[x] == 0) {
-            group.members[x] = 1;
-            console.log("cursed")
-            k--;
-        }
-    }
-}
-
-function typeCursed(group) {
-    let count = 0;
-
-    for (let i = 0; i < group.n; i++) {
-        if(group.resistant[i] && group.members[i] == 1) {
-            count++;
-        }
-    }
-
-    return count;
 }
